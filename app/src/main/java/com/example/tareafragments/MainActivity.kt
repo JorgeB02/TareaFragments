@@ -17,14 +17,14 @@ class MainActivity : AppCompatActivity() {
             .commit()
 
         findViewById<TextView>(R.id.tv_bottom).setOnClickListener {
-            val fg = UserDetailFragment()
+            val fragment = UserDetailFragment()
             val bundle = Bundle()
             bundle.putString("user_id", "1")
-            fg.arguments = bundle
+            fragment.arguments = bundle
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
                 addToBackStack(null)
-                    .replace(R.id.fcv_fragment, fg, "UserDetailFragment")
+                    .replace(R.id.fcv_fragment, fragment, "UserDetailFragment")
             }
         }
     }

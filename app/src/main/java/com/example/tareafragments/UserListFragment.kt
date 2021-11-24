@@ -53,7 +53,7 @@ class UserListFragment : Fragment() {
     companion object {
         private const val ARG_USER_ID = "user_id"
         @JvmStatic
-        fun newInstance(userID: String): UserDetailFragment {
+        fun instance(userID: String): UserDetailFragment {
             val fg = UserDetailFragment()
             val bundle = Bundle()
             bundle.putString(ARG_USER_ID, userID)

@@ -20,7 +20,7 @@ private val listener: (UserResponse) -> Unit
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = users[position]
-        holder.tvFirstName.text = user.name.first + " " + user.name.last
+        holder.tvName.text = user.name.first + " " + user.name.last
         holder.tvPlace.text = user.location.country
         Glide.with(holder.ivAvatar.context).load(user.picture.medium).placeholder(R.drawable.th2).into(holder.ivAvatar);
 
@@ -32,7 +32,7 @@ private val listener: (UserResponse) -> Unit
     override fun getItemCount(): Int  = users.size
 
     inner  class  UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvFirstName: TextView = view.findViewById(R.id.tv_name)
+        val tvName: TextView = view.findViewById(R.id.tv_name)
         val tvPlace: TextView = view.findViewById(R.id.tv_countrie)
         var ivAvatar : ImageView = view.findViewById(R.id.iv_image)
     }

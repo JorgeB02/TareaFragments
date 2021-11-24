@@ -10,13 +10,13 @@ import android.widget.Toast
 import com.google.gson.Gson
 
 class UserDetailFragment : Fragment() {
-    private var userEmail: String? = null
+    private var emailUser: String? = null
     private lateinit var tvFirstName: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            userEmail = it.getString(ARG_USER_EMAIL)
+            emailUser = it.getString(ARG_USER_EMAIL)
         }
     }
 
@@ -35,7 +35,7 @@ class UserDetailFragment : Fragment() {
         val userResponse : ResultResponse =
             gson.fromJson(FakeData.usersJson, ResultResponse::class.java)
 
-        val user: UserResponse? = userResponse.users.firstOrNull{ userEmail == it.email}
+        val user: UserResponse? = userResponse.users.firstOrNull{ emailUser == it.email}
 
         if (user == null) {
             Log.d("UserDetailFragment", "User not found")
@@ -51,7 +51,7 @@ class UserDetailFragment : Fragment() {
         fun newInstance(param1: String) =
             UserDetailFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_USER_EMAIL, userEmail)
+                    putString(ARG_USER_EMAIL, emailUser)
                 }
             }
     }
